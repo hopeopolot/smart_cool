@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cool | Greenhouse Monitoring</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🌿</div>
+            <div>
+                <h2>Smart Cool</h2>
+                <span>SMART GREENHOUSE</span>
+            </div>
+        </div>
+
+        <div class="nav-label">MAIN MENU</div>
+
+        <nav>
+            <a href="#readings" class="active">
+                <span>◈</span> Environmental Readings
+            </a>
+
+            <a href="#prediction">
+                <span>⌁</span> ML Prediction
+            </a>
+
+            <a href="#alerts">
+                <span>♧</span> System Alerts
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="plant-icon">🌱</div>
+            <h3>Growing smarter.</h3>
+            <p>Intelligent monitoring for a healthier greenhouse.</p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div>
+                <p class="breadcrumb">SMART COOL <span>/</span> DASHBOARD</p>
+
+                <h1>Greenhouse Monitoring</h1>
+
+                <p class="subtitle">
+                    Monitor your greenhouse environment and stay ahead of overheating.
+                </p>
+            </div>
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+                Monitoring
+            </div>
+
+        </header>
+
+
+        <!-- ENVIRONMENTAL READINGS -->
+        <section id="readings">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-tag">ENVIRONMENT</span>
+                    <h2>Environmental Readings</h2>
+                    <p>Current greenhouse conditions</p>
+                </div>
+
+                <div class="live-label">
+                    <span class="status-dot"></span> Sensor readings
+                </div>
+
+            </div>
+
+
+            <!-- SENSOR CARDS -->
+            <div class="reading-cards">
+
+                <!-- TEMPERATURE -->
+                <div class="reading-card temperature">
+
+                    <div class="card-top">
+                        <div class="reading-icon">🌡️</div>
+                        <span class="card-label">TEMPERATURE</span>
+                    </div>
+
+                    <h3 id="temperature">--<span>°C</span></h3>
+
+                    <p>Greenhouse air temperature</p>
+
+                    <div class="card-bottom">
+                        <span>Air condition</span>
+                        <span class="reading-indicator">●</span>
+                    </div>
+
+                </div>
+
+
+                <!-- HUMIDITY -->
+                <div class="reading-card humidity">
+
+                    <div class="card-top">
+                        <div class="reading-icon">💧</div>
+                        <span class="card-label">HUMIDITY</span>
+                    </div>
+
+                    <h3 id="humidity">--<span>%</span></h3>
+
+                    <p>Relative air humidity</p>
+
+                    <div class="card-bottom">
+                        <span>Moisture level</span>
+                        <span class="reading-indicator">●</span>
+                    </div>
+
+                </div>
+
+
+                <!-- LIGHT -->
+                <div class="reading-card light">
+
+                    <div class="card-top">
+                        <div class="reading-icon">☀️</div>
+                        <span class="card-label">LIGHT INTENSITY</span>
+                    </div>
+
+                    <h3 id="light">--</h3>
+
+                    <p>LDR sensor reading (ADC)</p>
+
+                    <div class="card-bottom">
+                        <span>Ambient light</span>
+                        <span class="reading-indicator">●</span>
+                    </div>
+
+                </div>
+
+
+                <!-- VENTILATION -->
+                <div class="reading-card fan">
+
+                    <div class="card-top">
+                        <div class="reading-icon">🌀</div>
+                        <span class="card-label">VENTILATION</span>
+                    </div>
+
+                    <h3 id="fan">OFF</h3>
+
+                    <p>Ventilation fan status</p>
+
+                    <div class="card-bottom">
+                        <span>Fan operation</span>
+                        <span class="reading-indicator">●</span>
+                    </div>
+
+                </div>
+
+
+                <!-- GAS MONITORING -->
+                <div class="reading-card gas">
+
+                    <div class="card-top">
+                        <div class="reading-icon">◉</div>
+                        <span class="card-label">GAS MONITORING</span>
+                    </div>
+
+                    <h3 id="gas">--</h3>
+
+                    <p>MQ-7B sensor reading (raw ADC)</p>
+
+                    <div class="gas-meter">
+                        <div id="gasBar" class="gas-meter-fill"></div>
+                    </div>
+
+                    <div class="card-bottom">
+                        <span id="gasStatus">Awaiting readings</span>
+                        <span id="gasIndicator" class="reading-indicator">●</span>
+                    </div>
+
+                    <div class="gas-note" id="gasMessage">
+                        Monitoring greenhouse air conditions.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PREDICTION AND ALERTS -->
+        <div class="information-grid">
+
+            <!-- ML PREDICTION -->
+            <section class="prediction-panel" id="prediction">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="section-tag">INTELLIGENCE</span>
+                        <h2>ML Overheating Prediction</h2>
+                    </div>
+
+                    <div class="brain-icon">✳</div>
+
+                </div>
+
+
+                <div class="prediction-content">
+
+                    <div class="prediction-circle">
+                        <span>AI</span>
+                    </div>
+
+                    <div class="prediction-details">
+
+                        <span class="small-heading">CURRENT RISK LEVEL</span>
+
+                        <h3 id="predictionStatus">LOW RISK</h3>
+
+                        <p id="predictionMessage">
+                            Waiting for sensor readings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="prediction-footer">
+
+                    <div>
+                        <span>Ventilation status</span>
+                        <strong id="predictionFan">OFF</strong>
+                    </div>
+
+                    <div>
+                        <span>Warning threshold</span>
+                        <strong>30°C</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SYSTEM ALERTS -->
+            <section class="alerts-panel" id="alerts">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="section-tag">NOTIFICATIONS</span>
+                        <h2>System Alerts</h2>
+                    </div>
+
+                    <div class="alert-icon">♧</div>
+
+                </div>
+
+
+                <div class="alert-list">
+
+                    <div class="alert-item">
+
+                        <div class="alert-symbol" id="alertSymbol">✓</div>
+
+                        <div>
+                            <h3 id="alertTitle">System Operating</h3>
+
+                            <p id="alertMessage">
+                                No overheating warning at the moment.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="alert-item">
+
+                        <div class="alert-symbol neutral">⌁</div>
+
+                        <div>
+                            <h3>Sensor Connection</h3>
+
+                            <p id="sensorConnection">
+                                Waiting for live sensor connection.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <span>🌿 SMART COOL</span>
+
+            <p>
+                Intelligent Greenhouse Monitoring & Ventilation System
+            </p>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
